@@ -121,9 +121,9 @@ ISR(TIM0_COMPA_vect) // T=10.0266ms
 	tick_count++;
 
 #ifdef DEBUG
-if (tick_count > target_ticks) {
-	error_loop(DEBUG_MISSED_COMPARISON_ERROR);
-}
+	if (tick_count > target_ticks) {
+		error_loop(DEBUG_MISSED_COMPARISON_ERROR);
+	}
 #endif
 
 	ADMUX &= ~ADC_CHANNEL_MASK;
